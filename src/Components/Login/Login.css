@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+
+.login-area {
+  width: 35rem;
+  height: 28rem;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0 auto;
+}
+
+.login-area .card-title {
+  font-weight: 700;
+}
+
+.social-login {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  width: 28rem;
+}
+
+.social-login img {
+  height: 25px;
+  width: 25px;
+  text-align: left;
+  margin-right: 2px;
+}
+
+.social-login .btn {
+  width: 100%;
+  border-radius: 57px !important;
+  border: 1px solid #c7c7c7;
+  padding: 5px;
+  background-color: #fff;
+  color: #333;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.social-login .btn:focus,
+.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
+
+@media (max-width: 576px) {
+  .login-area {
+    width: 21rem;
+    height: 19rem;
+  }
+  .social-login {
+    width: 18rem;
+  }
+}

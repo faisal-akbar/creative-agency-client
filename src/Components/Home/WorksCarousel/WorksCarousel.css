@@ -1,0 +1,25 @@
+.carousel-img {
+  width: 468px;
+  height: 336px;
+}
+
+.alice-carousel,
+.carousel-section {
+  background-color: #111430;
+}
+
+.carousel-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-content: center;
+}
+
+.item {
+  height: 400px;
+  padding: 2px;
+  background-color: #111430;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

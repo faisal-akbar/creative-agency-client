@@ -1,0 +1,8 @@
+.feedback-card {
+  border: none !important;
+  transition: all 0.2s ease-in-out;
+}
+
+.feedback-card:hover {
+  transform: scale(1.04);
+}
