@@ -78,8 +78,8 @@ const Navbar = () => {
                 type='button'
                 className={
                   isAdminTemp || isAdmin
-                    ? 'btn btn-dark w-100'
-                    : 'btn btn-info w-100'
+                    ? 'btn btn-dark w-100 px-4'
+                    : 'btn btn-info w-100 px-3'
                 }
               >
                 {isAdminTemp || isAdmin ? 'Admin' : 'Dashboard'}
@@ -94,14 +94,14 @@ const Navbar = () => {
               <button
                 onClick={signOut}
                 type='button'
-                className='btn btn-danger w-100'
+                className='btn btn-danger w-100 px-3'
               >
                 Sign Out
               </button>
             </Link>
           ) : (
             <Link to='/login' className='nav-link'>
-              <button type='button' className='btn btn-brand w-100'>
+              <button type='button' className='btn btn-brand w-100 px-5'>
                 Login
               </button>
             </Link>

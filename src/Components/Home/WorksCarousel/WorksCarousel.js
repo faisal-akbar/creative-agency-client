@@ -35,7 +35,7 @@ const items = [
 const WorksCarousel = () => {
   return (
     <section className='carousel-section mt-5' id='portfolio'>
-      <h3 className='text-center mt-5'>
+      <h3 className='text-center' style={{fontSize: '34px', fontWeight:'600', marginTop:'70px'}}>
         <span className='text-white'>Here are some of </span>
         <span style={{ color: '#7AB259' }}>our works</span>
       </h3>

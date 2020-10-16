@@ -9,6 +9,7 @@ import WorksCarousel from '../WorksCarousel/WorksCarousel';
 import './Header.css';
 
 const Header = () => {
+  document.title = "Creative Agency";
   return (
     <main>
       <div className='header-container container'>

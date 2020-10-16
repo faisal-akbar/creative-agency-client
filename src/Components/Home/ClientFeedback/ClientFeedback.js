@@ -23,7 +23,7 @@ const ClientFeedback = () => {
   return (
     <section className='client-feedback d-flex align-items-center justify-content-center my-5'>
       <div className='container mb-5 mt-3'>
-        <h3 className='text-center mb-5'>
+        <h3 className='text-center mb-5' style={{fontSize:'36px', fontWeight:'600'}}>
           <span style={{ color: '#171B4E' }}>Clients </span>
           <span style={{ color: '#7AB259' }}>Feedback</span>
         </h3>

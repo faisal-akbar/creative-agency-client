@@ -6,11 +6,11 @@ const ContactUs = () => {
     <section style ={{backgroundColor:'#FBD062'}} className='contact-section d-flex justify-content-center align-items-center flex-column mt-5 py-3' id='contact'>
       <div className='w-75 row mt-3 pt-5 justify-content-between justify-content-center'>
         <div className='col-md-6'>
-          <h3>
+          <h3 style={{fontSize:'34px', fontWeight:'600'}} className='mb-4'>
             Let us handle your <br /> project, professionally.
           </h3>
           <p>
-            With well written codes, we build amazing apps for all platforms,
+            With well written codes, we build amazing apps <br /> for all platforms,
             mobile and web apps in general.
           </p>
         </div>

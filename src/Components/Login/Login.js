@@ -10,6 +10,8 @@ import { initializeLoginFramework, handleGoogleSignIn } from './loginManager';
 // ============================================================================================
 
 const Login = () => {
+  document.title = "CA || Login";
+  
   // Initialize Firebase
   initializeLoginFramework();
 

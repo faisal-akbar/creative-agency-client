@@ -23,7 +23,7 @@ const Services = () => {
   return (
     <section className='services-container'>
       <div className='text-center'>
-        <h3>
+        <h3 style={{fontSize:'34px', fontWeight:'600px'}}>
           Provide Awesome <span style={{ color: '#7AB259' }}>services</span>
         </h3>
       </div>

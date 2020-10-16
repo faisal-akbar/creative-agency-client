@@ -40,8 +40,10 @@ const ClientServiceList = () => {
 
   return (
     <section className='container mt-4 client-services-area'>
+      <h4 className="text-center text-dark">You've placed {clientServices.length} Order</h4>
       <div className='row'>
         <PreLoader loading={loading} />
+        
         {clientServices.map((service) => (
           <ClientServiceItem key={service._id} service={service} />
         ))}
@@ -51,6 +53,9 @@ const ClientServiceList = () => {
 };
 
 export default ClientServiceList;
+
+
+
 
 // When user Click on Cancel update the userDashboard view:
 // const handleDeleteUpdate = () => {

@@ -21,7 +21,7 @@ const ServiceDetail = ({ service }) => {
                 <img style={{ height: '50px' }} src={service.img} alt='' />
                 
           }
-          <h5 className='mt-3 mb-3'>{service.title}</h5>
+          <h5 className='mt-3 mb-3' style={{fontSize:'20px', fontWeight:'600'}}>{service.title}</h5>
           <p className='text-secondary'>{service.description}</p>
         </Link>
     </animated.div>

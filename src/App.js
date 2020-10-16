@@ -68,37 +68,37 @@ function App() {
                 <Login />
               </Route>
               <PrivateRoute path='/service/:_id'>
-                <DashboardLayout>
+                <DashboardLayout title='Order'>
                   <PlaceOrder />
                 </DashboardLayout>
               </PrivateRoute>
               <PrivateRoute exact path='/order'>
-                <DashboardLayout>
+                <DashboardLayout title='Order'>
                   <NoOrderId />
                 </DashboardLayout>
               </PrivateRoute>
               <PrivateRoute exact path='/service-lists'>
-                <DashboardLayout>
+                <DashboardLayout title='Services List'>
                   <ClientServiceList />
                 </DashboardLayout>
               </PrivateRoute>
               <PrivateRoute exact path='/add-feedback'>
-                <DashboardLayout>
+                <DashboardLayout title='Reviews'>
                   <AddFeedback />
                 </DashboardLayout>
               </PrivateRoute>
               <PrivateRoute exact path='/admin-service-lists'>
-                <DashboardLayout>
+                <DashboardLayout title='Services List'>
                   <AdminServiceList />
                 </DashboardLayout>
               </PrivateRoute>
               <PrivateRoute exact path='/addService'>
-                <DashboardLayout>
+                <DashboardLayout title='Add Services'>
                   <AddService />
                 </DashboardLayout>
               </PrivateRoute>
               <PrivateRoute exact path='/makeAdmin'>
-                <DashboardLayout>
+                <DashboardLayout title='Add Admin'>
                   <AddAdmin />
                 </DashboardLayout>
               </PrivateRoute>

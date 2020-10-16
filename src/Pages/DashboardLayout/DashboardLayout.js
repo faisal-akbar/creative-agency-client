@@ -7,6 +7,7 @@ import { loggedInInfo } from '../../Components/Login/loginManager';
 //========================================================================
 
 const MainDashboard = (props) => {
+  document.title = "CA || Dashboard";
   // Context from App.js
   const loggedUSer = loggedInInfo();
 
