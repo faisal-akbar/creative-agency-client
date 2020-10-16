@@ -40,22 +40,32 @@ const Navbar = () => {
         <span className='navbar-toggler-icon'></span>
       </button>
       <div className='collapse navbar-collapse' id='navbarNavAltMarkup'>
-        <div className='navbar-nav  justify-content-between nav-link ml-auto align-items-md-center'>
+        <ul className='navbar-nav  justify-content-between nav-link ml-auto align-items-md-center'>
           {/* Home Navigation Click redirect to home */}
-          <Link to='/home' className='nav-link active'>
+          <li className="nav-item">
+          <Link to='/home' className='nav-link  active mr-3'>
             Home
           </Link>
-          <Link to='/donation' className='nav-link' href='#'>
-            Donation
+          </li>
+          <li className="nav-item">
+          <a className='nav-link mr-3' href='#portfolio'>
+           Our Portfolio
+          </a>
+          </li>
+          <li className="nav-item">
+          <Link to='/' className='nav-link mr-3' href='#'>
+            Our Team
           </Link>
-          <Link to='/events' className='nav-link' href='#'>
-            Events
-          </Link>
-          <Link to='/blog' className='nav-link' href='#'>
-            Blog
-          </Link>
+          </li>
+          <li className="nav-item">
+          <a className='nav-link mr-3' href='#contact'>
+            Contact Us
+          </a>
+          </li>
+         
 
-          {(loggedInUser.email || isLogged) && (
+<li className="nav-item">
+{(loggedInUser.email || isLogged) && (
             <Link
               to={
                 isAdminTemp || isAdmin
@@ -76,9 +86,10 @@ const Navbar = () => {
               </button>
             </Link>
           )}
+</li>
 
-          {/* If user is not logged in show Login else Sign out  */}
-          {loggedInUser.email || isLogged ? (
+<li className="nav-item">
+{loggedInUser.email || isLogged ? (
             <Link to='/' className='nav-link'>
               <button
                 onClick={signOut}
@@ -95,7 +106,10 @@ const Navbar = () => {
               </button>
             </Link>
           )}
-        </div>
+</li>
+          {/* If user is not logged in show Login else Sign out  */}
+      
+        </ul>
       </div>
     </nav>
   );

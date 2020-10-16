@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { AdminContext, AdminContextTemp } from '../../../App';
 import PreLoader from '../../PreLoader/PreLoader';
 // ==============================================================================
 
-const RegisteredDataTables = () => {
+const AdminServiceList = () => {
   // This is table showed in the Admin Dashboard with List of service register
   // Set List of service register:
   const [serviceList, setServiceList] = useState([]);
   const [selectService, setSelectService] = useState({});
 
-  //PreLoader visibility
-  const [preLoaderVisibility, setPreLoaderVisibility] = useState('block');
+    // loader
+    const [loading, setLoading] = useState(true);
 
   // Get all the Volunteer Register
   useEffect(() => {
@@ -17,7 +19,7 @@ const RegisteredDataTables = () => {
       .then((res) => res.json())
       .then((data) => {
         setServiceList(data);
-        setPreLoaderVisibility('none');
+        setLoading(false);
       });
   }, [serviceList]);
 
@@ -44,6 +46,22 @@ const RegisteredDataTables = () => {
         }
       });
   };
+
+  // Allow access to Admin Only
+   // Admin context from App.js
+   const [isAdmin, setIsAdmin] = useContext(AdminContext);
+   const [isAdminTemp, setIsAdminTemp] = useContext(AdminContextTemp);
+   let history = useHistory();
+  
+   // If admin then allow
+   useEffect(() => {
+     if (isAdmin || isAdminTemp) {
+       history.push('/admin-service-lists');
+     } 
+         else {
+       history.push('/');
+     }
+   }, [history, isAdmin, isAdminTemp]);
 
   let serialNo = 1;
 
@@ -120,10 +138,10 @@ const RegisteredDataTables = () => {
             ))}
           </tbody>
         </table>
-        <PreLoader visibility={preLoaderVisibility} />
+        <PreLoader loading={loading} />
       </div>
     </>
   );
 };
 
-export default RegisteredDataTables;
+export default AdminServiceList;

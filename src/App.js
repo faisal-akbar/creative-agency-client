@@ -5,20 +5,15 @@ import Header from './Components/Home/Header/Header';
 import Login from './Components/Login/Login';
 import NoMatch from './Components/NoMatch/NoMatch';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
-import Services from './Components/Home/Services/Services';
-import WorksCarousel from './Components/Home/WorksCarousel/WorksCarousel';
-import ClientFeedback from './Components/Home/ClientFeedback/ClientFeedback';
-import ContactUs from './Components/Home/ContactUs/ContactUs';
-import Order from './Pages/Clients/Order';
-import Feedback from './Pages/Clients/Feedback';
-import AdminServiceList from './Pages/Admin/AdminServiceList';
-import Service from './Pages/Admin/Service';
-import MakeAdmin from './Pages/Admin/MakeAdmin';
-import ClientServices from './Pages/Clients/ClientServices';
-import TopClients from './Components/Home/TopClients/TopClients';
 import { loggedInInfo } from './Components/Login/loginManager';
-import NoServiceId from './Pages/Clients/NoServiceId';
-
+import DashboardLayout from './Pages/DashboardLayout/DashboardLayout';
+import PlaceOrder from './Components/Dashboard/PlaceOrder/PlaceOrder';
+import NoOrderId from './Components/Dashboard/NoOrderId/NoOrderId';
+import AdminServiceList from './Components/Dashboard/AdminServiceList/AdminServiceList';
+import ClientServiceList from './Components/Dashboard/ClientServiceList/ClientServiceList';
+import AddFeedback from './Components/Dashboard/AddFeedback/AddFeedback';
+import AddService from './Components/Dashboard/AddService/AddService';
+import AddAdmin from './Components/Dashboard/AddAdmin/AddAdmin';
 // ========================================================================================
 
 // Context
@@ -63,48 +58,50 @@ function App() {
         <UserContext.Provider value={[loggedInUser, SetLoggedInUser]}>
           <Router>
             <Switch>
+              <Route exact path='/'>
+                <Header />
+              </Route>
               <Route exact path='/home'>
                 <Header />
-                <TopClients />
-                <Services />
-                <WorksCarousel />
-                <ClientFeedback />
-                <ContactUs />
               </Route>
               <Route exact path='/login'>
                 <Login />
               </Route>
               <PrivateRoute path='/service/:_id'>
-                <Order />
+                <DashboardLayout>
+                  <PlaceOrder />
+                </DashboardLayout>
               </PrivateRoute>
               <PrivateRoute exact path='/order'>
-                <NoServiceId />
-              </PrivateRoute>
-              <PrivateRoute exact path='/admin-service-lists'>
-                <AdminServiceList />
+                <DashboardLayout>
+                  <NoOrderId />
+                </DashboardLayout>
               </PrivateRoute>
               <PrivateRoute exact path='/service-lists'>
-                <ClientServices />
-              </PrivateRoute>
-              <PrivateRoute exact path='/addService'>
-                <Service />
+                <DashboardLayout>
+                  <ClientServiceList />
+                </DashboardLayout>
               </PrivateRoute>
               <PrivateRoute exact path='/add-feedback'>
-                <Feedback />
+                <DashboardLayout>
+                  <AddFeedback />
+                </DashboardLayout>
+              </PrivateRoute>
+              <PrivateRoute exact path='/admin-service-lists'>
+                <DashboardLayout>
+                  <AdminServiceList />
+                </DashboardLayout>
+              </PrivateRoute>
+              <PrivateRoute exact path='/addService'>
+                <DashboardLayout>
+                  <AddService />
+                </DashboardLayout>
               </PrivateRoute>
               <PrivateRoute exact path='/makeAdmin'>
-                <MakeAdmin />
+                <DashboardLayout>
+                  <AddAdmin />
+                </DashboardLayout>
               </PrivateRoute>
-
-              <Route exact path='/'>
-                <Header />
-                <TopClients />
-                <Services />
-                <WorksCarousel />
-                <ClientFeedback />
-                <ContactUs />
-              </Route>
-
               <Route path='*'>
                 <NoMatch />
               </Route>

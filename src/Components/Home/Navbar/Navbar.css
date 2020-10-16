@@ -18,3 +18,13 @@
     width: 100%;
   }
 }
+
+@media (min-width: 768px) {
+  .nav-link {
+    padding-bottom: 5px !important;
+  }
+
+  .nav-link.active {
+    border-bottom: 2px solid #7ab259;
+  }
+}

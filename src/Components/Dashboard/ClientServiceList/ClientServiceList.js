@@ -7,6 +7,9 @@ import { loggedInInfo } from '../../Login/loginManager';
 //======================================================================
 
 const ClientServiceList = () => {
+  // loader
+  const [loading, setLoading] = useState(true);
+
   // Set state for loggedInUser:
   const [clientServices, setClientServices] = useState([]);
 
@@ -15,9 +18,6 @@ const ClientServiceList = () => {
 
   // logged User info from session
   const loggedUser = loggedInInfo();
-
-  //PreLoader visibility
-  const [preLoaderVisibility, setPreLoaderVisibility] = useState('block');
 
   // Dynamically filter loggedInUser data from API:
   useEffect(() => {
@@ -34,19 +34,19 @@ const ClientServiceList = () => {
       .then((res) => res.json())
       .then((data) => {
         setClientServices(data);
-        setPreLoaderVisibility('none');
+        setLoading(false);
       });
   }, [loggedUser.email]);
 
   return (
-    <div className='container mt-5'>
+    <section className='container mt-4 client-services-area'>
       <div className='row'>
-        <PreLoader visibility={preLoaderVisibility} />
+        <PreLoader loading={loading} />
         {clientServices.map((service) => (
           <ClientServiceItem key={service._id} service={service} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

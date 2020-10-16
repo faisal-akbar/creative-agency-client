@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Sidebar from '../../Components/Dashboard/Sidebar/Sidebar';
 import '../../Components/Dashboard/Sidebar/Sidebar.css';
 import logo from '../../assets/images/logos/logo.png';
 import { Link } from 'react-router-dom';
-import PlaceOrder from '../../Components/Dashboard/PlaceOrder/PlaceOrder';
 import { loggedInInfo } from '../../Components/Login/loginManager';
-//===================================================================
+//========================================================================
 
-const Order = () => {
-  // Logged in user info from session
+const MainDashboard = (props) => {
+  // Context from App.js
   const loggedUSer = loggedInInfo();
+
   return (
-    <div className='container-fluid'>
+    <section className='container-fluid'>
       <div className='row bg-white py-3'>
         <div className='col-md-2'>
           <Link to='/'>
@@ -24,7 +24,7 @@ const Order = () => {
           </Link>
         </div>
         <div className='col-md-10 d-flex align-items-center justify-content-between mt-3'>
-          <h5>Order</h5>
+          <h5>{props.title}</h5>
           <h5>{loggedUSer.name}</h5>
         </div>
       </div>
@@ -33,11 +33,11 @@ const Order = () => {
           <Sidebar />
         </div>
         <div className='col-md-10' style={{ backgroundColor: '#F4F7FC' }}>
-          <PlaceOrder />
+          {props.children}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default Order;
+export default MainDashboard;

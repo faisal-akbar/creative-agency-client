@@ -2,14 +2,8 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 const ContactUs = () => {
-  // React hook form for extra form validation and error message
-  const { register, handleSubmit, errors } = useForm();
-
-  const onSubmit= ()=>{
-    console.log('Message Sent')
-  }
-  return (
-    <section style ={{backgroundColor:'#FBD062'}} className='contact-section d-flex justify-content-center align-items-center flex-column mt-5 py-3'>
+   return (
+    <section style ={{backgroundColor:'#FBD062'}} className='contact-section d-flex justify-content-center align-items-center flex-column mt-5 py-3' id='contact'>
       <div className='w-75 row mt-3 pt-5 justify-content-between justify-content-center'>
         <div className='col-md-6'>
           <h3>
@@ -22,16 +16,16 @@ const ContactUs = () => {
         </div>
 
         <div className='col-md-6'>
-          <form onSubmit={handleSubmit(onSubmit)} className='event-form'>
+          <form action="https://formspree.io/f/xqkgpwag" method="POST" className='event-form'>
             <div className='form-group'>
               <input
                 className='form-control'
                 name='email'
                 type='email'
                 placeholder='Your email address'
-                ref={register({ required: true })}
+                required
               />
-              {errors.email && <span className='error'>Email is required</span>}
+              
             </div>
             <div className='form-group'>
               <input
@@ -39,11 +33,9 @@ const ContactUs = () => {
                 name='name'
                 type='text'
                 placeholder='Your name / company’s name'
-                ref={register({ required: true })}
+                required
               />
-              {errors.name && (
-                <span className='error'>Name/ company’s name is required</span>
-              )}
+              
             </div>
             <div className='form-group'>
               <textarea
@@ -51,12 +43,8 @@ const ContactUs = () => {
                 name='message'
                 placeholder='Your message'
                 rows='6'
-                ref={register({ required: true })}
+                required
               ></textarea>
-
-              {errors.message && (
-                <span className='error'>Message is required</span>
-              )}
             </div>
             <div className='row'>
               <div className='col-md-12'>

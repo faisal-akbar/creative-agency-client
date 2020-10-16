@@ -1,6 +1,7 @@
 .carousel-img {
   width: 468px;
   height: 336px;
+  border-radius: 10px;
 }
 
 .alice-carousel,
@@ -18,8 +19,24 @@
 .item {
   height: 400px;
   padding: 2px;
-  background-color: #111430;
+  /* background-color: #111430; */
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .carousel-img {
+    width: 93%;
+    height: 336px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-img {
+    width: 93%;
+    height: 330px;
+    border-radius: 10px;
+  }
 }

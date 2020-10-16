@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
 import { useHistory } from 'react-router-dom';
+import { AdminContext, AdminContextTemp } from '../../../App';
 // ========================================================
 
 const AddService = () => {
@@ -41,8 +42,22 @@ const AddService = () => {
       });
   };
 
-  // handle redirected to home
+  // Allow access to Admin Only
+  // Admin context from App.js
+  const [isAdmin, setIsAdmin] = useContext(AdminContext);
+  const [isAdminTemp, setIsAdminTemp] = useContext(AdminContextTemp);
   let history = useHistory();
+
+  // If admin then allow
+  useEffect(() => {
+    if (isAdmin || isAdminTemp) {
+      history.push('/addService');
+    } else {
+      history.push('/');
+    }
+  }, [history, isAdmin, isAdminTemp]);
+
+  // handle redirected to home
   function handleServiceUpdate() {
     history.push('/');
   }

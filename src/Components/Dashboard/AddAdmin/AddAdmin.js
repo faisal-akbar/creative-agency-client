@@ -1,13 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
-import { UserContext } from '../../../App';
+import { AdminContext, AdminContextTemp, UserContext } from '../../../App';
 // ========================================================
 
 const AddAdmin = () => {
   // Context from app.js
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-
 
   // handle redirected to home
   let history = useHistory();
@@ -17,9 +16,8 @@ const AddAdmin = () => {
 
   // handle Add admin when form Submit:
   const onSubmit = (data) => {
-
     const newAdmin = { ...data };
-    console.log('new ad', newAdmin)
+    console.log('new ad', newAdmin);
 
     fetch('https://creative-agency-react.herokuapp.com/addAdmin', {
       method: 'POST',
@@ -34,6 +32,25 @@ const AddAdmin = () => {
       });
   };
 
+    // Allow access to Admin Only
+  // Admin context from App.js
+  const [isAdmin, setIsAdmin] = useContext(AdminContext);
+  const [isAdminTemp, setIsAdminTemp] = useContext(AdminContextTemp);
+  
+  // If admin then allow
+  useEffect(() => {
+    if (isAdmin || isAdminTemp) {
+      history.push('/makeAdmin');
+    } else {
+      history.push('/');
+    }
+  }, [history, isAdmin, isAdminTemp]);
+
+  // handle redirected to home
+  function handleServiceUpdate() {
+    history.push('/');
+  }
+
   // React hook form for validation and error message
   const { register, handleSubmit, errors } = useForm();
 
@@ -45,7 +62,6 @@ const AddAdmin = () => {
             <div className='form-group mr-3 w-100'>
               <input
                 className='form-control'
-                defaultValue={loggedInUser.name}
                 name='email'
                 type='email'
                 placeholder='admin@creative.com'

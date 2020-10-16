@@ -7,7 +7,7 @@
   right: 0;
   /* background-color: #FBD062; */
   z-index: -50;
-  background-image: linear-gradient(176deg, #fbd062 70%, #fff calc(70% + 2px));
+  background-image: linear-gradient(175deg, #fbd062 70%, #fff calc(70% + 2px));
 }
 
 @media (max-width: 768px) {
@@ -18,6 +18,6 @@
 
 @media (max-width: 576px) {
   .header-container::after {
-    height: 1030px;
+    height: 1000px;
   }
 }

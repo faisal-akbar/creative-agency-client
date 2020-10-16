@@ -7,7 +7,7 @@ const ClientServiceItem = (props) => {
 
   return (
     <div className='col-md-6 rounded mb-3'>
-      <div className='card  h-100'>
+      <div className='card h-100'>
         <div className='card-body p-3'>
           <div className='row'>
             <div className='col-md-12 d-flex justify-content-between'>

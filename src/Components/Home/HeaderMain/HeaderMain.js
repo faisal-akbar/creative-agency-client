@@ -11,7 +11,7 @@ const HeaderMain = () => {
           Next Level
         </h1>
         <p style={{color: '#000'}} className='mb-4'>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat
+        Lorem ipsum dolor sit amet, consectetur<br />adipiscing elit. Purus commodo ipsum duis<br />laoreet maecenas. Feugiat
         </p>
 
         <button className='btn btn-brand text-white'>
