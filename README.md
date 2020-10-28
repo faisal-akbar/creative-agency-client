@@ -28,7 +28,7 @@ Note: Only admin user have ability to view admin dashboard.
 - Session Storage
 - React Spinners
 - React Spring
-- React Slick
+- React Alice Carousel
 - Bootstrap
 - CSS3
 - FontAwesome
